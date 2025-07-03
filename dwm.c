@@ -244,6 +244,7 @@ static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
 static void sigchld(int unused);
+static void resetlayout(const Arg *arg);
 #ifndef __OpenBSD__
 static int getdwmblockspid();
 static void sigdwmblocks(const Arg *arg);
@@ -1504,6 +1505,16 @@ recttomon(int x, int y, int w, int h)
 			r = m;
 		}
 	return r;
+}
+
+void
+resetlayout(const Arg *arg)
+{
+   Arg default_layout = {.v = &layouts[0]};
+   Arg default_mfact = {.f = mfact + 1};
+
+   setlayout(&default_layout);
+   setmfact(&default_mfact);
 }
 
 void
