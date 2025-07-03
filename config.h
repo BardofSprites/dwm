@@ -142,7 +142,7 @@ static const Key keys[] = {
     /* modifier                     key        function        argument */
     STACKKEYS(MODKEY,                          focus)
     STACKKEYS(MODKEY|ShiftMask,                push)
-    { MODKEY,               XK_grave,   spawn,      SHCMD("$HOME/.local/bin/scripts/dmenuunicode") },
+    { MODKEY,               XK_grave,   view,       {0} },
     TAGKEYS(                XK_1,       0)
     TAGKEYS(                XK_2,       1)
     TAGKEYS(                XK_3,       2)
@@ -154,15 +154,15 @@ static const Key keys[] = {
     TAGKEYS(                XK_9,       8)
     { MODKEY,               XK_0,       view,       {.ui = ~0 } },
     { MODKEY|ShiftMask,     XK_0,       tag,        {.ui = ~0 } },
-    { MODKEY,               XK_Tab,     view,       {0} },
-    { MODKEY,               XK_q,       killclient,     {0} },
+    { MODKEY,               XK_Tab,     focusstack, {.i = +1 } },
+    { MODKEY,               XK_q,       killclient, {0} },
     { MODKEY|ShiftMask,     XK_q,       quit,       {0} },
 
     // monitors
-    { MODKEY,               XK_Left,    focusmon,   {.i = -1 } },
-    { MODKEY|ShiftMask,     XK_Left,    tagmon,     {.i = -1 } },
-    { MODKEY,               XK_Right,   focusmon,   {.i = +1 } },
-    { MODKEY|ShiftMask,     XK_Right,   tagmon,     {.i = +1 } },
+    { MODKEY|ShiftMask,       XK_h,    focusmon,   {.i = -1 } },
+    { MODKEY|ControlMask,     XK_h,    tagmon,     {.i = -1 } },
+    { MODKEY|ShiftMask,       XK_l,    focusmon,   {.i = +1 } },
+    { MODKEY|ControlMask,     XK_l,    tagmon,     {.i = +1 } },
 
     { MODKEY,               XK_w,       spawn,      {.v = (const char*[]){ BROWSER,  NULL } } },
     { MODKEY|ShiftMask,     XK_w,       spawn,      {.v = (const char*[]){ BROWSER2, NULL } } },
@@ -176,19 +176,21 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,     XK_i,       setlayout,  {.v = &layouts[7]} }, /* centeredfloatingmaster */
     { MODKEY,               XK_o,       incnmaster,     {.i = +1 } },
     { MODKEY|ShiftMask,     XK_o,       incnmaster,     {.i = -1 } },
+    { MODKEY,               XK_equal,   resetlayout,    {0}},
     { MODKEY,               XK_a,       togglegaps,     {0} },
     { MODKEY|ShiftMask,     XK_a,       defaultgaps,    {0} },
     { MODKEY,               XK_s,       togglesticky,   {0} },
-    { MODKEY,               XK_d,       spawn,          SHCMD("dmenu_run -l 10 -p 'Run: '") },
-    { MODKEY,               XK_x,       spawn,      SHCMD("$HOME/.local/bin/scripts/emacs/emacs-daemon.sh start") },
-    { MODKEY|ShiftMask,     XK_x,       spawn,      SHCMD("$HOME/.local/bin/scripts/emacs/emacs-daemon.sh kill") },
+    { MODKEY,               XK_d,       spawn,          SHCMD("dmenu_run -p 'Run: '") },
+    /* { MODKEY,               XK_e,       spawn,      SHCMD("$HOME/.local/bin/scripts/emacs/emacs-daemon.sh start") }, */
+    /* { MODKEY|ShiftMask,     XK_e,       spawn,      SHCMD("$HOME/.local/bin/scripts/emacs/emacs-daemon.sh kill") }, */
     { MODKEY,               XK_n,       spawn,      SHCMD("emacsclient -c") },
     { MODKEY,               XK_e,       spawn,      SHCMD("emacs") },
-    { MODKEY,               XK_equal,   spawn,      SHCMD("$HOME/.local/bin/scripts/scratch.sh") },
-    { MODKEY|ShiftMask,     XK_n,       spawn,      SHCMD("$HOME/.local/bin/scripts/dired_selector") },
+    { MODKEY|ShiftMask,     XK_d,       spawn,      SHCMD("$HOME/.local/bin/scripts/dired_selector") },
+    { MODKEY|ShiftMask,     XK_n,       spawn,      SHCMD("$HOME/.local/bin/scripts/emacs-launcher") },
     { MODKEY,               XK_m,       spawn,      SHCMD("emacsclient -c -e '(emms)'") },
     { MODKEY|ShiftMask,     XK_m,       spawn,      SHCMD("$HOME/.local/bin/scripts/wallpaper.sh") },
-    { MODKEY|ShiftMask,     XK_e,       spawn,      SHCMD("boomer") },
+    { MODKEY|ShiftMask,     XK_x,       spawn,      SHCMD("$HOME/.local/bin/scripts/sysact") },
+    { MODKEY|ShiftMask,     XK_b,       spawn,      SHCMD("boomer") },
     { MODKEY,               XK_f,       togglefullscr,  {0} },
     { MODKEY,               XK_h,       setmfact,   {.f = -0.05} },
     /* J and K are automatically bound above in STACKEYS */
