@@ -17,13 +17,13 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "Iosevka Comfy:pixelsize=18", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
-static char normbgcolor[]           = "#000000";
-static char normbordercolor[]       = "#1e1e1e";
-static char normfgcolor[]           = "#ffffff";
-static char selfgcolor[]            = "#ffffff";
-static char selbordercolor[]        = "#ffffff";
-static char selbgcolor[]            = "#535353";
+static char *fonts[]          = { "Iosevka Comfy:pixelsize=16", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -54,6 +54,7 @@ static const Rule rules[] = {
     */
     /* class    instance      title          tags mask    isfloating   isterminal  noswallow  monitor */
     { "Gimp",     NULL,       NULL,             1 << 8,       0,           0,         0,        -1 },
+    { "mpv",      NULL,       NULL,             1 << 7,       0,           0,         0,         1 },
     { TERMCLASS,  NULL,       NULL,             0,            0,           1,         0,        -1 },
     { NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
     { TERMCLASS,      "floatterm", NULL,                0,       1,           1,         0,        -1 },
