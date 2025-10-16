@@ -3,8 +3,8 @@
 /* Constants */
 #define TERMINAL  "st"
 #define TERMCLASS "St"
-#define BROWSER   "librewolf-bin"
-#define BROWSER2  "firefox-bin"
+#define BROWSER   "zen"
+#define BROWSER2  "librewolf"
 
 /* appearance */
 static unsigned int borderpx  = 5;        /* border pixel of windows */
@@ -17,12 +17,12 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "Iosevka Comfy:pixelsize=16", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
+static char *fonts[]          = { "Iosevka Comfy:pixelsize=16", "NotoColorEmoji:pixelsize=16:antialias=true:autohint=true"  };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
+static char selbordercolor[]        = "#770000";
 static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -46,6 +46,7 @@ static Sp scratchpads[] = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/* static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九"  }; */
 
 static const Rule rules[] = {
     /* xprop(1):
